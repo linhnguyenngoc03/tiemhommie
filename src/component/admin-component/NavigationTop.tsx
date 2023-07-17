@@ -14,10 +14,11 @@ import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import { useContext } from 'react';
-import { UserContext } from '../login/AuthContext';
+import { signOut } from 'firebase/auth';
+import { auth } from '@/config/firebase';
+import { useRouter } from 'next/router';
 const settings = ['Profile', 'Logout'];
 function AdminNavigationTop() {
-  const { logout } = useContext(UserContext)
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
 
@@ -29,6 +30,7 @@ function AdminNavigationTop() {
     setAnchorElUser(null);
   };
 
+  const router = useRouter()
   return (
     <AppBar position="fixed"
       sx={{
@@ -50,22 +52,6 @@ function AdminNavigationTop() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open notification">
-              <IconButton size='large' >
-                <InfoOutlinedIcon sx={{
-                  transform: "scale(1.3)",
-                  color: "rgb(25, 118, 210)"
-                }}/>
-              </IconButton>
-            </Tooltip>
-            <Tooltip title="Open notification">
-              <IconButton  size='large'>
-                <NotificationsOutlinedIcon sx={{
-                  transform: "scale(1.3)",
-                  color: "rgb(25, 118, 210)"
-                }} />
-              </IconButton>
-            </Tooltip>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }} size='large'>
                 <AccountCircleOutlinedIcon sx={{
@@ -93,7 +79,8 @@ function AdminNavigationTop() {
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={() => {
                   handleCloseUserMenu()
-                  logout()
+                  signOut(auth)
+                  router.push("/")
                 }}
                 >
                   <Typography textAlign="center">{setting}</Typography>

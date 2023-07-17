@@ -5,9 +5,10 @@ import {
   Dialog,
   DialogContent,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
-import InforCard from "@/component/login/InforCard";
+import LoginCard from "@/component/auth/LoginCard";
+import InformationCard from "@/component/auth/InformationCard";
 export default function Information() {
   return (
     <div>
@@ -23,10 +24,13 @@ export default function Information() {
           position: "absolute",
         }}
       />
-      <Dialog open={true} maxWidth="xs" fullWidth sx={{
-        "& .MuiButtonBase-root": {
-          backgroundColor: setup.navigationColor
-        },
+      <Dialog open={true} fullWidth sx={{
+        maxWidth: "35rem",
+        margin: "auto",
+        "& .MuiPaper-root": {
+          borderRadius: "1rem",
+          padding: " 1rem 2rem",
+        }
       }}>
         <DialogTitle
           sx={{
@@ -34,15 +38,16 @@ export default function Information() {
               xs: "none", sm: "block", cursor: "pointer",
               letterSpacing: '.1rem',
             },
-
             fontSize: "1.5rem",
-            fontFamily: 'Roboto Serif'
+            textAlign: "center",
+            fontWeight: "600",
+            fontFamily: 'Roboto Serif',
           }}
         >
-         Thông tin người dùng
+          {setup.name}
         </DialogTitle>
         <DialogContent>
-          <InforCard />
+          <InformationCard />
         </DialogContent>
       </Dialog>
     </div>

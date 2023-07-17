@@ -1,28 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Charm&family=Camel&family=Fraunces:ital@1&family=Montserrat&family=Roboto&family=Roboto+Serif&display=swap');
-img {
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
+@import url("https://fonts.googleapis.com/css2?family=Charm&family=Camel&family=Fraunces:ital@1&family=Montserrat&family=Roboto&family=Roboto+Serif&display=swap");
+* {
+  box-sizing: border-box;
 }
-.navbar {
-    margin: 0px 2rem 0px;
-}
-body {
-    margin: 0px;
-    background-color: #F6F9FC;
-}
-.input-login {
-    margin: 0.5rem 0rem;
-    width: 100%;
-}
+
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
-.banner-paging{
-    opacity: 0;
-    transition: 200ms;
-    align-items: flex-end;
+.banner-paging {
+  opacity: 0;
+  transition: 200ms;
+  align-items: flex-end;
 }
 .banner-paging:hover {
-    opacity: 1;
+  opacity: 1;
 }

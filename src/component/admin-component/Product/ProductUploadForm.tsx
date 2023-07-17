@@ -200,6 +200,7 @@ export default function ProductUploadForm({ categoryList }: any) {
                   variant="contained"
                   color="secondary"
                   type="submit"
+                  size="small"
                   fullWidth
                   sx={{ marginTop: "2rem" }}
                 >

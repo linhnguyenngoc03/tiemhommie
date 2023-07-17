@@ -5,12 +5,10 @@ import {
   Dialog,
   DialogContent,
 } from "@mui/material";
-import React, { useContext, useState } from "react";
-import LoginCard from "@/component/login/LoginCard";
-import RegisterCard from "@/component/login/RegisterCard";
+import React, { useState } from "react";
 import Head from "next/head";
+import LoginCard from "@/component/auth/LoginCard";
 export default function Login() {
-  const [sign, setSign] = useState(false);
 
   return (
     <div>
@@ -26,10 +24,12 @@ export default function Login() {
           position: "absolute",
         }}
       />
-      <Dialog open={true} maxWidth="xs" fullWidth sx={{
-        "& .MuiPaper-root" : {
-          border: "3px solid #FEAFA2",
-          borderRadius: "1rem"
+      <Dialog open={true} fullWidth sx={{
+        maxWidth: "35rem",
+        margin: "auto",
+        "& .MuiPaper-root": {
+          borderRadius: "1rem",
+          padding: " 1rem 2rem",
         }
       }}>
         <DialogTitle
@@ -39,13 +39,15 @@ export default function Login() {
               letterSpacing: '.1rem',
             },
             fontSize: "1.5rem",
+            textAlign: "center",
+            fontWeight: "600",
             fontFamily: 'Roboto Serif',
           }}
         >
-          Welcome to {setup.name}
+          {setup.name}
         </DialogTitle>
         <DialogContent>
-          {sign === false ? <LoginCard setSign={setSign} /> : <RegisterCard setSign={setSign} />}
+          <LoginCard />
         </DialogContent>
       </Dialog>
     </div>
